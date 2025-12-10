@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Watching Survey</title>
+    <link rel="stylesheet" href="layout.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Bird Watching Survey</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="identification.html">Identification</a></li>
+                <li><a href="habitat.html">Habitat</a></li>
+                <li><a href="survey.html">Survey</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <p id="datetime-display"></p>
+
+        <form onsubmit="submitAlert(); return false;">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="zip">Zip Code (5 digits):</label>
+                <input type="text" id="zip" name="zip" pattern="\d{5}" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Bird Sighting Details</legend>
+
+                <label for="date">Date Seen:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time Seen:</label>
+                <input type="time" id="time" name="time">
+
+                <label for="location">Location:</label>
+                <select id="location" name="location" required>
+                    <option value="">Choose a habitat...</option>
+                    <option value="Coastal">Coastal</option>
+                    <option value="Mountain">Mountain</option>
+                </select>
+
+                <label for="species">Bird Species:</label>
+                <input list="species-list" id="species" name="species" required>
+                <datalist id="species-list">
+                    <option value="Blue Jay">
+                    <option value="Cardinal">
+                    <option value="Robin">
+                    <option value="Carolina Wren">
+                </datalist>
+
+                <p>How certain are you?</p>
+                <label><input type="radio" name="certainty" value="very" required> Very Certain</label>
+                <label><input type="radio" name="certainty" value="somewhat"> Somewhat Certain</label>
+                <label><input type="radio" name="certainty" value="unsure"> Unsure</label>
+
+                <label for="count">Number of Birds Seen:</label>
+                <input type="number" id="count" name="count" min="1" max="100" required>
+
+                <label for="size">Bird Size (Small &rarr; Large):</label>
+                <input type="range" id="size" name="size" min="1" max="10">
+
+                <label for="behavior">Behavior Observed:</label>
+                <textarea id="behavior" name="behavior" rows="3" placeholder="e.g., Singing, Flying, Nesting..."></textarea>
+
+                <p>Check behaviors observed:</p>
+                <label><input type="checkbox" name="behavior-type" value="feeding"> Feeding</label>
+                <label><input type="checkbox" name="behavior-type" value="flying"> Flying</label>
+                <label><input type="checkbox" name="behavior-type" value="perching"> Perching</label>
+
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="2"></textarea>
+            </fieldset>
+
+            <div class="form-buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Cancel</button>
+            </div>
+        </form>
+
+        <section>
+            <h2>Countdown to Midnight</h2>
+            <p id="countdown"></p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Birds of North Carolina
+    </footer>
+</body>
+</html>
